@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0ziuqa4" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.34.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.7.0">
+  <bpmn:collaboration id="Collaboration_1yo9g0u">
+    <bpmn:participant id="Participant_1p8yrlv" name="Autoevaluaciones" processRef="Process_1994q61" />
+    <bpmn:textAnnotation id="TextAnnotation_1v7vm4a">
+      <bpmn:text>Mostrar examenes de autoevaluacion</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_051xd0r" associationDirection="None" sourceRef="Participant_1p8yrlv" targetRef="TextAnnotation_1v7vm4a" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_1994q61" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Ir a autoevaluaciones">
+      <bpmn:outgoing>Flow_1o677o6</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_11cgyh2" name="Abrir URL en una pestana nueva">
+      <bpmn:incoming>Flow_1oenw3c</bpmn:incoming>
+      <bpmn:outgoing>Flow_17oyjgk</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_19d44a0">
+      <bpmn:incoming>Flow_17oyjgk</bpmn:incoming>
+      <bpmn:incoming>Flow_12k0kkq</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:task id="Activity_0g9r2q3" name="Mostrar auto-evaluaciones disponibles">
+      <bpmn:incoming>Flow_0tg6cgk</bpmn:incoming>
+      <bpmn:outgoing>Flow_0e0smym</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_1stn1dj" name="Hay autoevaluaciones disponibles?">
+      <bpmn:incoming>Flow_1o677o6</bpmn:incoming>
+      <bpmn:outgoing>Flow_0tg6cgk</bpmn:outgoing>
+      <bpmn:outgoing>Flow_12k0kkq</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Activity_0alnbca" name="Seleccionar autoevaluacion a realizar">
+      <bpmn:incoming>Flow_0e0smym</bpmn:incoming>
+      <bpmn:outgoing>Flow_1oenw3c</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1o677o6" sourceRef="StartEvent_1" targetRef="Gateway_1stn1dj" />
+    <bpmn:sequenceFlow id="Flow_1oenw3c" sourceRef="Activity_0alnbca" targetRef="Activity_11cgyh2" />
+    <bpmn:sequenceFlow id="Flow_17oyjgk" sourceRef="Activity_11cgyh2" targetRef="Event_19d44a0" />
+    <bpmn:sequenceFlow id="Flow_12k0kkq" name="No" sourceRef="Gateway_1stn1dj" targetRef="Event_19d44a0" />
+    <bpmn:sequenceFlow id="Flow_0tg6cgk" name="Si" sourceRef="Gateway_1stn1dj" targetRef="Activity_0g9r2q3" />
+    <bpmn:sequenceFlow id="Flow_0e0smym" sourceRef="Activity_0g9r2q3" targetRef="Activity_0alnbca" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1yo9g0u">
+      <bpmndi:BPMNShape id="Participant_1p8yrlv_di" bpmnElement="Participant_1p8yrlv" isHorizontal="true">
+        <dc:Bounds x="292" y="55" width="946" height="320" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="372" y="162" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="347" y="205" width="87" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_11cgyh2_di" bpmnElement="Activity_11cgyh2">
+        <dc:Bounds x="940" y="140" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_19d44a0_di" bpmnElement="Event_19d44a0">
+        <dc:Bounds x="1102" y="162" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0g9r2q3_di" bpmnElement="Activity_0g9r2q3">
+        <dc:Bounds x="590" y="140" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1stn1dj_di" bpmnElement="Gateway_1stn1dj" isMarkerVisible="true">
+        <dc:Bounds x="465" y="155" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="446" y="105" width="87" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0alnbca_di" bpmnElement="Activity_0alnbca">
+        <dc:Bounds x="770" y="140" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1o677o6_di" bpmnElement="Flow_1o677o6">
+        <di:waypoint x="408" y="180" />
+        <di:waypoint x="465" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0e0smym_di" bpmnElement="Flow_0e0smym">
+        <di:waypoint x="690" y="180" />
+        <di:waypoint x="770" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1oenw3c_di" bpmnElement="Flow_1oenw3c">
+        <di:waypoint x="870" y="180" />
+        <di:waypoint x="940" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_17oyjgk_di" bpmnElement="Flow_17oyjgk">
+        <di:waypoint x="1040" y="180" />
+        <di:waypoint x="1102" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0tg6cgk_di" bpmnElement="Flow_0tg6cgk">
+        <di:waypoint x="515" y="180" />
+        <di:waypoint x="590" y="180" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="548" y="162" width="10" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12k0kkq_di" bpmnElement="Flow_12k0kkq">
+        <di:waypoint x="490" y="205" />
+        <di:waypoint x="490" y="290" />
+        <di:waypoint x="1120" y="290" />
+        <di:waypoint x="1120" y="198" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="512" y="272" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_051xd0r_di" bpmnElement="Association_051xd0r">
+        <di:waypoint x="292" y="189" />
+        <di:waypoint x="260" y="188" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_1v7vm4a_di" bpmnElement="TextAnnotation_1v7vm4a">
+        <dc:Bounds x="160" y="170" width="100" height="55" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
