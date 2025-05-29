@@ -4,6 +4,7 @@ Nombre: Felipe Diaz Aimar
 Abrir archivo Proyecto de Inteligencia artificial para dar clases de medicina.docx
 
 Implementacion: 
+ 
 https://github.com/FelipeDiazAimar/TutorInteligente
  
 https://asistentemedico.onrender.com/
