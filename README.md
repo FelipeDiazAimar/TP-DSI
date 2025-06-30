@@ -1,7 +1,7 @@
 # Trabajo Práctico - Diseño de Sistemas de Información (DSI)
 
 **Autor:** Felipe Diaz Aimar  
-**Proyecto:** Sistema de Tutor Inteligente para Apuntes
+**Proyecto:** Tutorías inteligentes: un enfoque personalizado para la educación universitaria.
 
 ## 📋 Descripción del Proyecto
 
