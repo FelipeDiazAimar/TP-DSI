@@ -20,7 +20,7 @@ Este proyecto presenta el desarrollo de un **Sistema de Tutor Inteligente** dise
 **Repositorio GitHub:** https://github.com/FelipeDiazAimar/AsistenteInteligente
 
 ### 🌐 Aplicación Web
-**URL de la aplicación:** https://asistenteinteligente.onrender.com/
+**URL de la aplicación:** https://asistente-inteligente.vercel.app/
 
 ### 🛠️ Tecnologías Utilizadas
 
